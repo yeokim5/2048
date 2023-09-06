@@ -1,0 +1,2 @@
+concat : 합침
+Array(), fill() useful to fill array

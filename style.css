@@ -1,0 +1,77 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "VT323", monospace;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 0.5rem 0;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  width: 600px;
+  max-width: 90vw;
+  aspect-ratio: 1/1;
+}
+
+.tile {
+  border: 5px dashed rgb(215, 215, 215);
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  aspect-ratio: 1/1;
+}
+
+button h1 {
+  color: white;
+  font-family: inherit;
+  font-size: clamp(2rem, calc(6vw + 1rem), 4rem);
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* when i add tile it will do this animation */
+}
+
+.animation {
+  animation: typing-animation 1s steps(10, end) 1;
+}
+
+@keyframes typing-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.gameover {
+  border: 3px white solid;
+  color: white;
+  height: clamp(2rem, calc(6vw + 1rem), 4rem);
+}
+
+.hidden {
+  display: none;
+}
