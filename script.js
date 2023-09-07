@@ -53,6 +53,13 @@ function makeRandomTile() {
   const newTile = tiles.children[randomTile].children[0];
   newTile.textContent = tileArray[randomTile];
   newTile.dataset.value = tileArray[randomTile];
+  // Add a class to trigger the animation
+  newTile.classList.add("animation");
+
+  // Remove the class after the animation completes
+  setTimeout(function () {
+    newTile.classList.remove("animation");
+  }, 1000); // 1000ms, which is the duration of your animation
 }
 
 function modifyTileArray() {
@@ -204,14 +211,18 @@ document.addEventListener("touchmove", (e) => {
   if (Math.abs(deltaX) > Math.abs(deltaY)) {
     if (deltaX > 0) {
       keyRIGHT();
+      makeRandomTile();
     } else {
       keyLEFT();
+      makeRandomTile();
     }
   } else {
     if (deltaY > 0) {
       keyDOWN();
+      makeRandomTile();
     } else {
       keyUP();
+      makeRandomTile();
     }
   }
 
@@ -245,5 +256,6 @@ window.addEventListener("keydown", function (event) {
     [] if achieve high score graphetii, every 100 point chagne text color 
 
     [] make the restart to work
+    [] make responsive it doesn't work on phone
 
 */
